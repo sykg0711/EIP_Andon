@@ -23,14 +23,11 @@ namespace EIPForm
         {
             InitializeComponent();
 
-
             //データエリア番号を登録
             dataAreaArray.Add(DataArea0);
             dataAreaArray.Add(DataArea1);
             timer1.Interval = 1000;
             timer1.Enabled = true;
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)

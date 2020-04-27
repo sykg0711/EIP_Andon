@@ -35,11 +35,15 @@ namespace EIPForm
         /// EIPユニットのIPアドレスを登録します。
         /// </summary>
         public uint SetIpAddress { get; set; }
+
         /// <summary>
         /// 親フォームを取得します。
         /// </summary>
         public Form1 GetFrom { get; set; }
 
+        /// <summary>
+        /// ネットワーク内のEthernet/IPデバイスを登録します
+        /// </summary>
         public List<Encapsulation.CIPIdentityItem> DeviceList { get; set; }
 
         /// <summary>
@@ -48,7 +52,9 @@ namespace EIPForm
         /// <param name="dataareaID">更新するデータエリア番号</param>
         /// <param name="instanceid">インスタンスID</param>
         /// <param name="dataType">データ型</param>
+        /// <param name="isString">入力データが文字列の場合true</param>
         /// <param name="tcpport">TCPポート</param>
+        /// <return>EIP_Status構造体を返します</return>
         public virtual EIP_Status ReadInstance(int dataareaID, byte instanceid, DataType dataType, bool isString, ushort tcpport = 44818)
         {
             EIP_Status status = new EIP_Status();
@@ -112,6 +118,8 @@ namespace EIPForm
                 status.code = 0;
                 status.response = response;
 
+                eEIPClient.UnRegisterSession();
+
             }
             catch (Exception e)
             {
@@ -119,13 +127,10 @@ namespace EIPForm
                 status.message = e.Message;
                 status.response = null;
             }
-            finally
-            {
-                eEIPClient.UnRegisterSession();
-            }
+
             return status;
         }
-
+        
         public virtual void WriteInstance(byte instanceid, DataType dataType, byte[] sendData, bool isString, ushort tcpport = 44818)
         {
             try
