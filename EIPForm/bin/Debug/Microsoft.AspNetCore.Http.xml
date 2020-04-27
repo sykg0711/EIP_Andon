@@ -4,19 +4,178 @@
         <name>Microsoft.AspNetCore.Http</name>
     </assembly>
     <members>
-        <member name="F:Microsoft.Extensions.Internal.TaskCache.CompletedTask">
+        <member name="P:Microsoft.AspNetCore.Http.DefaultHttpContext.Authentication">
             <summary>
-            A <see cref="T:System.Threading.Tasks.Task"/> that's already completed successfully.
+            This is obsolete and will be removed in a future version. 
+            The recommended alternative is to use Microsoft.AspNetCore.Authentication.AuthenticationHttpContextExtensions.
+            See https://go.microsoft.com/fwlink/?linkid=845470.
             </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Http.HttpRequestRewindExtensions">
+            <summary>
+            Extension methods for enabling buffering in an <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.HttpRequestRewindExtensions.EnableBuffering(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            Ensure the <paramref name="request"/> <see cref="P:Microsoft.AspNetCore.Http.HttpRequest.Body"/> can be read multiple times. Normally
+            buffers request bodies in memory; writes requests larger than 30K bytes to disk.
+            </summary>
+            <param name="request">The <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/> to prepare.</param>
             <remarks>
-            We're caching this in a static readonly field to make it more inlinable and avoid the volatile lookup done
-            by <c>Task.CompletedTask</c>.
+            Temporary files for larger requests are written to the location named in the <c>ASPNETCORE_TEMP</c>
+            environment variable, if any. If that environment variable is not defined, these files are written to the
+            current user's temporary folder. Files are automatically deleted at the end of their associated requests.
             </remarks>
         </member>
-        <member name="P:Microsoft.Extensions.Internal.TaskCache`1.DefaultCompletedTask">
+        <member name="M:Microsoft.AspNetCore.Http.HttpRequestRewindExtensions.EnableBuffering(Microsoft.AspNetCore.Http.HttpRequest,System.Int32)">
             <summary>
-            Gets a completed <see cref="T:System.Threading.Tasks.Task"/> with the value of <c>default(T)</c>.
+            Ensure the <paramref name="request"/> <see cref="P:Microsoft.AspNetCore.Http.HttpRequest.Body"/> can be read multiple times. Normally
+            buffers request bodies in memory; writes requests larger than <paramref name="bufferThreshold"/> bytes to
+            disk.
             </summary>
+            <param name="request">The <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/> to prepare.</param>
+            <param name="bufferThreshold">
+            The maximum size in bytes of the in-memory <see cref="T:System.Buffers.ArrayPool`1"/> used to buffer the
+            stream. Larger request bodies are written to disk.
+            </param>
+            <remarks>
+            Temporary files for larger requests are written to the location named in the <c>ASPNETCORE_TEMP</c>
+            environment variable, if any. If that environment variable is not defined, these files are written to the
+            current user's temporary folder. Files are automatically deleted at the end of their associated requests.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.HttpRequestRewindExtensions.EnableBuffering(Microsoft.AspNetCore.Http.HttpRequest,System.Int64)">
+            <summary>
+            Ensure the <paramref name="request"/> <see cref="P:Microsoft.AspNetCore.Http.HttpRequest.Body"/> can be read multiple times. Normally
+            buffers request bodies in memory; writes requests larger than 30K bytes to disk.
+            </summary>
+            <param name="request">The <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/> to prepare.</param>
+            <param name="bufferLimit">
+            The maximum size in bytes of the request body. An attempt to read beyond this limit will cause an
+            <see cref="T:System.IO.IOException"/>.
+            </param>
+            <remarks>
+            Temporary files for larger requests are written to the location named in the <c>ASPNETCORE_TEMP</c>
+            environment variable, if any. If that environment variable is not defined, these files are written to the
+            current user's temporary folder. Files are automatically deleted at the end of their associated requests.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.HttpRequestRewindExtensions.EnableBuffering(Microsoft.AspNetCore.Http.HttpRequest,System.Int32,System.Int64)">
+            <summary>
+            Ensure the <paramref name="request"/> <see cref="P:Microsoft.AspNetCore.Http.HttpRequest.Body"/> can be read multiple times. Normally
+            buffers request bodies in memory; writes requests larger than <paramref name="bufferThreshold"/> bytes to
+            disk.
+            </summary>
+            <param name="request">The <see cref="T:Microsoft.AspNetCore.Http.HttpRequest"/> to prepare.</param>
+            <param name="bufferThreshold">
+            The maximum size in bytes of the in-memory <see cref="T:System.Buffers.ArrayPool`1"/> used to buffer the
+            stream. Larger request bodies are written to disk.
+            </param>
+            <param name="bufferLimit">
+            The maximum size in bytes of the request body. An attempt to read beyond this limit will cause an
+            <see cref="T:System.IO.IOException"/>.
+            </param>
+            <remarks>
+            Temporary files for larger requests are written to the location named in the <c>ASPNETCORE_TEMP</c>
+            environment variable, if any. If that environment variable is not defined, these files are written to the
+            current user's temporary folder. Files are automatically deleted at the end of their associated requests.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Http.Features.DefaultSessionFeature">
+            <summary>
+            This type exists only for the purpose of unit testing where the user can directly set the
+            <see cref="P:Microsoft.AspNetCore.Http.HttpContext.Session"/> property without the need for creating a <see cref="T:Microsoft.AspNetCore.Http.Features.ISessionFeature"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.BufferBody">
+            <summary>
+            Enables full request body buffering. Use this if multiple components need to read the raw stream.
+            The default value is false.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.MemoryBufferThreshold">
+            <summary>
+            If <see cref="P:Microsoft.AspNetCore.Http.Features.FormOptions.BufferBody"/> is enabled, this many bytes of the body will be buffered in memory.
+            If this threshold is exceeded then the buffer will be moved to a temp file on disk instead.
+            This also applies when buffering individual multipart section bodies.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.BufferBodyLengthLimit">
+            <summary>
+            If <see cref="P:Microsoft.AspNetCore.Http.Features.FormOptions.BufferBody"/> is enabled, this is the limit for the total number of bytes that will
+            be buffered. Forms that exceed this limit will throw an <see cref="T:System.IO.InvalidDataException"/> when parsed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.ValueCountLimit">
+            <summary>
+            A limit for the number of form entries to allow.
+            Forms that exceed this limit will throw an <see cref="T:System.IO.InvalidDataException"/> when parsed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.KeyLengthLimit">
+            <summary>
+            A limit on the length of individual keys. Forms containing keys that exceed this limit will
+            throw an <see cref="T:System.IO.InvalidDataException"/> when parsed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.ValueLengthLimit">
+            <summary>
+            A limit on the length of individual form values. Forms containing values that exceed this
+            limit will throw an <see cref="T:System.IO.InvalidDataException"/> when parsed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartBoundaryLengthLimit">
+            <summary>
+            A limit for the length of the boundary identifier. Forms with boundaries that exceed this
+            limit will throw an <see cref="T:System.IO.InvalidDataException"/> when parsed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartHeadersCountLimit">
+            <summary>
+            A limit for the number of headers to allow in each multipart section. Headers with the same name will
+            be combined. Form sections that exceed this limit will throw an <see cref="T:System.IO.InvalidDataException"/>
+            when parsed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartHeadersLengthLimit">
+            <summary>
+            A limit for the total length of the header keys and values in each multipart section.
+            Form sections that exceed this limit will throw an <see cref="T:System.IO.InvalidDataException"/> when parsed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartBodyLengthLimit">
+            <summary>
+            A limit for the length of each multipart body. Forms sections that exceed this limit will throw an
+            <see cref="T:System.IO.InvalidDataException"/> when parsed.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature">
+            <summary>
+            Default implementation of <see cref="T:Microsoft.AspNetCore.Http.Features.IResponseCookiesFeature"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature.#ctor(Microsoft.AspNetCore.Http.Features.IFeatureCollection)">
+            <summary>
+            Initializes a new <see cref="T:Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature"/> instance.
+            </summary>
+            <param name="features">
+            <see cref="T:Microsoft.AspNetCore.Http.Features.IFeatureCollection"/> containing all defined features, including this
+            <see cref="T:Microsoft.AspNetCore.Http.Features.IResponseCookiesFeature"/> and the <see cref="T:Microsoft.AspNetCore.Http.Features.IHttpResponseFeature"/>.
+            </param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature.#ctor(Microsoft.AspNetCore.Http.Features.IFeatureCollection,Microsoft.Extensions.ObjectPool.ObjectPool{System.Text.StringBuilder})">
+            <summary>
+            Initializes a new <see cref="T:Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature"/> instance.
+            </summary>
+            <param name="features">
+            <see cref="T:Microsoft.AspNetCore.Http.Features.IFeatureCollection"/> containing all defined features, including this
+            <see cref="T:Microsoft.AspNetCore.Http.Features.IResponseCookiesFeature"/> and the <see cref="T:Microsoft.AspNetCore.Http.Features.IHttpResponseFeature"/>.
+            </param>
+            <param name="builderPool">The <see cref="T:Microsoft.Extensions.ObjectPool.ObjectPool`1"/>, if available.</param>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature.Cookies">
+            <inheritdoc />
         </member>
         <member name="T:Microsoft.AspNetCore.Http.FormCollection">
             <summary>
@@ -179,109 +338,7 @@
             </summary>
             <returns>An <see cref="T:System.Collections.IEnumerator" /> object that can be used to iterate through the collection.</returns>
         </member>
-        <member name="M:Microsoft.AspNetCore.Http.RequestFormReaderExtensions.ReadFormAsync(Microsoft.AspNetCore.Http.HttpRequest,Microsoft.AspNetCore.Http.Features.FormOptions,System.Threading.CancellationToken)">
-            <summary>
-            Read the request body as a form with the given options. These options will only be used
-            if the form has not already been read.
-            </summary>
-            <param name="request">The request.</param>
-            <param name="options">Options for reading the form.</param>
-            <param name="cancellationToken"></param>
-            <returns>The parsed form.</returns>
-        </member>
-        <member name="T:Microsoft.AspNetCore.Http.Features.DefaultSessionFeature">
-            <summary>
-            This type exists only for the purpose of unit testing where the user can directly set the
-            <see cref="P:Microsoft.AspNetCore.Http.HttpContext.Session"/> property without the need for creating a <see cref="T:Microsoft.AspNetCore.Http.Features.ISessionFeature"/>.
-            </summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.BufferBody">
-            <summary>
-            Enables full request body buffering. Use this if multiple components need to read the raw stream.
-            The default value is false.
-            </summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.MemoryBufferThreshold">
-            <summary>
-            If <see cref="P:Microsoft.AspNetCore.Http.Features.FormOptions.BufferBody"/> is enabled, this many bytes of the body will be buffered in memory.
-            If this threshold is exceeded then the buffer will be moved to a temp file on disk instead.
-            This also applies when buffering individual multipart section bodies.
-            </summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.BufferBodyLengthLimit">
-            <summary>
-            If <see cref="P:Microsoft.AspNetCore.Http.Features.FormOptions.BufferBody"/> is enabled, this is the limit for the total number of bytes that will
-            be buffered. Forms that exceed this limit will throw an <see cref="T:System.IO.InvalidDataException"/> when parsed.
-            </summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.ValueCountLimit">
-            <summary>
-            A limit for the number of form entries to allow.
-            Forms that exceed this limit will throw an <see cref="T:System.IO.InvalidDataException"/> when parsed.
-            </summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.KeyLengthLimit">
-            <summary>
-            A limit on the length of individual keys. Forms containing keys that exceed this limit will
-            throw an <see cref="T:System.IO.InvalidDataException"/> when parsed.
-            </summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.ValueLengthLimit">
-            <summary>
-            A limit on the length of individual form values. Forms containing values that exceed this
-            limit will throw an <see cref="T:System.IO.InvalidDataException"/> when parsed.
-            </summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartBoundaryLengthLimit">
-            <summary>
-            A limit for the length of the boundary identifier. Forms with boundaries that exceed this
-            limit will throw an <see cref="T:System.IO.InvalidDataException"/> when parsed.
-            </summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartHeadersCountLimit">
-            <summary>
-            A limit for the number of headers to allow in each multipart section. Headers with the same name will
-            be combined. Form sections that exceed this limit will throw an <see cref="T:System.IO.InvalidDataException"/>
-            when parsed.
-            </summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartHeadersLengthLimit">
-            <summary>
-            A limit for the total length of the header keys and values in each multipart section.
-            Form sections that exceed this limit will throw an <see cref="T:System.IO.InvalidDataException"/> when parsed.
-            </summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.Http.Features.FormOptions.MultipartBodyLengthLimit">
-            <summary>
-            A limit for the length of each multipart body. Forms sections that exceed this limit will throw an
-            <see cref="T:System.IO.InvalidDataException"/> when parsed.
-            </summary>
-        </member>
-        <member name="T:Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature">
-            <summary>
-            Default implementation of <see cref="T:Microsoft.AspNetCore.Http.Features.IResponseCookiesFeature"/>.
-            </summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature.#ctor(Microsoft.AspNetCore.Http.Features.IFeatureCollection)">
-            <summary>
-            Initializes a new <see cref="T:Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature"/> instance.
-            </summary>
-            <param name="features">
-            <see cref="T:Microsoft.AspNetCore.Http.Features.IFeatureCollection"/> containing all defined features, including this
-            <see cref="T:Microsoft.AspNetCore.Http.Features.IResponseCookiesFeature"/> and the <see cref="T:Microsoft.AspNetCore.Http.Features.IHttpResponseFeature"/>.
-            </param>
-        </member>
-        <member name="M:Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature.#ctor(Microsoft.AspNetCore.Http.Features.IFeatureCollection,Microsoft.Extensions.ObjectPool.ObjectPool{System.Text.StringBuilder})">
-            <summary>
-            Initializes a new <see cref="T:Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature"/> instance.
-            </summary>
-            <param name="features">
-            <see cref="T:Microsoft.AspNetCore.Http.Features.IFeatureCollection"/> containing all defined features, including this
-            <see cref="T:Microsoft.AspNetCore.Http.Features.IResponseCookiesFeature"/> and the <see cref="T:Microsoft.AspNetCore.Http.Features.IHttpResponseFeature"/>.
-            </param>
-            <param name="builderPool">The <see cref="T:Microsoft.Extensions.ObjectPool.ObjectPool`1"/>, if available.</param>
-        </member>
-        <member name="P:Microsoft.AspNetCore.Http.Features.ResponseCookiesFeature.Cookies">
+        <member name="P:Microsoft.AspNetCore.Http.Internal.DefaultConnectionInfo.Id">
             <inheritdoc />
         </member>
         <member name="P:Microsoft.AspNetCore.Http.Internal.FormFile.ContentDisposition">
@@ -341,29 +398,29 @@
             <summary>
             Get or sets the associated value from the collection as a single string.
             </summary>
-            <param name="key">The header name.</param>
+            <param name="key">The key name.</param>
             <returns>the associated value from the collection as a StringValues or StringValues.Empty if the key is not present.</returns>
         </member>
         <member name="P:Microsoft.AspNetCore.Http.Internal.QueryCollection.Count">
             <summary>
-            Gets the number of elements contained in the <see cref="T:Microsoft.AspNetCore.Http.HeaderDictionary" />;.
+            Gets the number of elements contained in the <see cref="T:Microsoft.AspNetCore.Http.Internal.QueryCollection" />;.
             </summary>
-            <returns>The number of elements contained in the <see cref="T:Microsoft.AspNetCore.Http.HeaderDictionary" />.</returns>
+            <returns>The number of elements contained in the <see cref="T:Microsoft.AspNetCore.Http.Internal.QueryCollection" />.</returns>
         </member>
         <member name="M:Microsoft.AspNetCore.Http.Internal.QueryCollection.ContainsKey(System.String)">
             <summary>
-            Determines whether the <see cref="T:Microsoft.AspNetCore.Http.HeaderDictionary" /> contains a specific key.
+            Determines whether the <see cref="T:Microsoft.AspNetCore.Http.Internal.QueryCollection" /> contains a specific key.
             </summary>
             <param name="key">The key.</param>
-            <returns>true if the <see cref="T:Microsoft.AspNetCore.Http.HeaderDictionary" /> contains a specific key; otherwise, false.</returns>
+            <returns>true if the <see cref="T:Microsoft.AspNetCore.Http.Internal.QueryCollection" /> contains a specific key; otherwise, false.</returns>
         </member>
         <member name="M:Microsoft.AspNetCore.Http.Internal.QueryCollection.TryGetValue(System.String,Microsoft.Extensions.Primitives.StringValues@)">
             <summary>
-            Retrieves a value from the dictionary.
+            Retrieves a value from the collection.
             </summary>
-            <param name="key">The header name.</param>
+            <param name="key">The key.</param>
             <param name="value">The value.</param>
-            <returns>true if the <see cref="T:Microsoft.AspNetCore.Http.HeaderDictionary" /> contains the key; otherwise, false.</returns>
+            <returns>true if the <see cref="T:Microsoft.AspNetCore.Http.Internal.QueryCollection" /> contains the key; otherwise, false.</returns>
         </member>
         <member name="M:Microsoft.AspNetCore.Http.Internal.QueryCollection.GetEnumerator">
             <summary>
@@ -429,6 +486,28 @@
         </member>
         <member name="M:Microsoft.AspNetCore.Http.Internal.ResponseCookies.Delete(System.String,Microsoft.AspNetCore.Http.CookieOptions)">
             <inheritdoc />
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.RequestFormReaderExtensions.ReadFormAsync(Microsoft.AspNetCore.Http.HttpRequest,Microsoft.AspNetCore.Http.Features.FormOptions,System.Threading.CancellationToken)">
+            <summary>
+            Read the request body as a form with the given options. These options will only be used
+            if the form has not already been read.
+            </summary>
+            <param name="request">The request.</param>
+            <param name="options">Options for reading the form.</param>
+            <param name="cancellationToken"></param>
+            <returns>The parsed form.</returns>
+        </member>
+        <member name="T:Microsoft.Extensions.DependencyInjection.HttpServiceCollectionExtensions">
+            <summary>
+            Extension methods for configuring HttpContext services.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.DependencyInjection.HttpServiceCollectionExtensions.AddHttpContextAccessor(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Adds a default implementation for the <see cref="T:Microsoft.AspNetCore.Http.IHttpContextAccessor"/> service.
+            </summary>
+            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</param>
+            <returns>The service collection.</returns>
         </member>
     </members>
 </doc>

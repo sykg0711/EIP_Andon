@@ -63,5 +63,13 @@
             <param name="prefix">The prefix that environment variable names must start with. The prefix will be removed from the environment variable names.</param>
             <returns>The <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/>.</returns>
         </member>
+        <member name="M:Microsoft.Extensions.Configuration.EnvironmentVariablesExtensions.AddEnvironmentVariables(Microsoft.Extensions.Configuration.IConfigurationBuilder,System.Action{Microsoft.Extensions.Configuration.EnvironmentVariables.EnvironmentVariablesConfigurationSource})">
+            <summary>
+            Adds an <see cref="T:Microsoft.Extensions.Configuration.IConfigurationProvider"/> that reads configuration values from environment variables.
+            </summary>
+            <param name="builder">The <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/> to add to.</param>
+            <param name="configureSource">Configures the source.</param>
+            <returns>The <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/>.</returns>
+        </member>
     </members>
 </doc>

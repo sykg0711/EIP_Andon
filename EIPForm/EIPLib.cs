@@ -24,6 +24,13 @@ namespace EIPForm
 
         }
 
+        public struct EIP_Status
+        {
+            public int code { get; set; }
+            public  string message { get; set; }
+            public byte[] response { get; set; }
+        }
+
         /// <summary>
         /// EIPユニットのIPアドレスを登録します。
         /// </summary>
@@ -42,8 +49,12 @@ namespace EIPForm
         /// <param name="instanceid">インスタンスID</param>
         /// <param name="dataType">データ型</param>
         /// <param name="tcpport">TCPポート</param>
-        public virtual void ReadInstance(int dataareaID, byte instanceid, DataType dataType, bool isString, ushort tcpport = 44818)
+        public virtual EIP_Status ReadInstance(int dataareaID, byte instanceid, DataType dataType, bool isString, ushort tcpport = 44818)
         {
+            EIP_Status status = new EIP_Status();
+            status.code = 0;
+            status.message = "";
+
             try
             {
                 //IPアドレスはフォームで選択したものを使用
@@ -57,7 +68,8 @@ namespace EIPForm
                 byte[] response = eEIPClient.GetAttributeSingle(0x04, instanceid, 0x03);
                 string responseString = "";
 
-                //データレジスタの場合BCDをBINへ変換してそのまま表示
+                //送られてきたデータが数値の場合
+                //HEX→DEC変換して格納
                 if ((dataType == DataType.DM || dataType == DataType.EM) && !isString)
                 {
                     int n = 0;
@@ -75,6 +87,8 @@ namespace EIPForm
                     GetFrom.Invoke(new Form1.Form1Update(() => GetFrom.Form1_DataAreaUpdate(responseString + "\n", dataareaID)));
                 }
 
+                //送られてきたデータが文字列の場合
+                //リトルエンディアンのため上位バイトは i + 1 に格納されている
                 if ((dataType == DataType.DM || dataType == DataType.EM) && isString)
                 {
 
@@ -87,21 +101,29 @@ namespace EIPForm
 
                     GetFrom.Invoke(new Form1.Form1Update(() => GetFrom.Form1_DataAreaUpdate(responseString + "\n", dataareaID)));
                 }
+
                 //ビット形式の場合RelayBinメソッドでBCDを2進数にする
                 if (dataType == DataType.R || dataType == DataType.L || dataType == DataType.X || dataType == DataType.Y)
                 {
                     RelayBin(response);
                 }
 
+                //戻り値を作る
+                status.code = 0;
+                status.response = response;
+
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                status.code = -1;
+                status.message = e.Message;
+                status.response = null;
             }
             finally
             {
                 eEIPClient.UnRegisterSession();
             }
+            return status;
         }
 
         public virtual void WriteInstance(byte instanceid, DataType dataType, byte[] sendData, bool isString, ushort tcpport = 44818)
@@ -133,6 +155,7 @@ namespace EIPForm
                 eEIPClient.UnRegisterSession();
             }
         }
+
         /// <summary>
         /// 16新数1ワードデータをビット列に変換し、チェックボックスの状態を変化させるデリゲートを呼び出します。
         /// </summary>

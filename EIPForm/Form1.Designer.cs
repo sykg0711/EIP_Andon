@@ -50,7 +50,7 @@
             this.DataArea0.Font = new System.Drawing.Font("MS UI Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.DataArea0.ForeColor = System.Drawing.Color.Black;
             this.DataArea0.Location = new System.Drawing.Point(43, 185);
-            this.DataArea0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DataArea0.Margin = new System.Windows.Forms.Padding(2);
             this.DataArea0.Name = "DataArea0";
             this.DataArea0.ReadOnly = true;
             this.DataArea0.Size = new System.Drawing.Size(506, 55);
@@ -70,7 +70,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(280, 28);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(61, 31);
             this.button1.TabIndex = 3;
@@ -93,7 +93,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(124, 17);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(147, 20);
             this.comboBox1.TabIndex = 5;
@@ -110,7 +110,7 @@
             "1000",
             "10000"});
             this.comboBox2.Location = new System.Drawing.Point(124, 45);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(92, 20);
             this.comboBox2.TabIndex = 9;
@@ -203,9 +203,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DataArea1);
             this.Controls.Add(this.DataArea0);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Ethernet/IP アンドン";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

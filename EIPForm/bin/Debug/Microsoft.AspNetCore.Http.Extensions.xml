@@ -51,7 +51,7 @@
         </member>
         <member name="M:Microsoft.AspNetCore.Http.Extensions.UriHelper.FromAbsolute(System.String,System.String@,Microsoft.AspNetCore.Http.HostString@,Microsoft.AspNetCore.Http.PathString@,Microsoft.AspNetCore.Http.QueryString@,Microsoft.AspNetCore.Http.FragmentString@)">
             <summary>
-            Seperates the given absolute URI string into components. Assumes no PathBase.
+            Separates the given absolute URI string into components. Assumes no PathBase.
             </summary>
             <param name="uri">A string representation of the uri.</param>
             <param name="scheme">http, https, etc.</param>
@@ -72,6 +72,13 @@
             <summary>
             Returns the combined components of the request URL in a fully escaped form suitable for use in HTTP headers
             and other HTTP operations.
+            </summary>
+            <param name="request">The request to assemble the uri pieces from.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Http.Extensions.UriHelper.GetEncodedPathAndQuery(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            Returns the relative url 
             </summary>
             <param name="request">The request to assemble the uri pieces from.</param>
             <returns></returns>

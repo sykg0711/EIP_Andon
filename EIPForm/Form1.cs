@@ -70,15 +70,25 @@ namespace EIPForm
         private void Timer1_Tick(object sender, EventArgs e)
         {
             DateTime d = DateTime.Now;
-            label5.Text = d.Hour + ":" + d.Minute + ":" + d.Second;
+            label5.Text = string.Format("{0:00}:{1:00}:{2:00}", d.Hour, d.Minute, d.Second);
 
             if (start)
             {
                 int.TryParse(comboBox2.SelectedItem.ToString(), out int waittime);
 
-                EIPLib.ReadInstance(0, 0x64, EIPLib.DataType.DM, true);
+                EIPLib.EIP_Status status1 = EIPLib.ReadInstance(0, 0x64, EIPLib.DataType.DM, true);
+                if (status1.code != 0)
+                {
+                    start = false;
+                    MessageBox.Show(status1.message);
+                }
                 DataArea0.Refresh();
-                EIPLib.ReadInstance(1, 0x66, EIPLib.DataType.DM, false);
+                EIPLib.EIP_Status status2 = EIPLib.ReadInstance(1, 0x66, EIPLib.DataType.DM, false);
+                if(status2.code !=0)
+                {
+                    start = false;
+                    MessageBox.Show(status2.message);
+                }
                 DataArea1.Refresh();
             }
         }
