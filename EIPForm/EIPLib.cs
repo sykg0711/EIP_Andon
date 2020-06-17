@@ -34,7 +34,7 @@ namespace EIPForm
         /// <summary>
         /// EIPユニットのIPアドレスを登録します。
         /// </summary>
-        public uint SetIpAddress { get; set; }
+        public List<uint> IpAddressList { get; set; }
 
         /// <summary>
         /// 親フォームを取得します。
@@ -54,8 +54,9 @@ namespace EIPForm
         /// <param name="dataType">データ型</param>
         /// <param name="isString">入力データが文字列の場合true</param>
         /// <param name="tcpport">TCPポート</param>
+        /// <param name="destination">宛先IPアドレス番号</param>
         /// <return>EIP_Status構造体を返します</return>
-        public virtual EIP_Status ReadInstance(int dataareaID, byte instanceid, DataType dataType, bool isString, ushort tcpport = 44818)
+        public virtual EIP_Status ReadInstance(byte instanceid, DataType dataType, bool isString, ushort tcpport = 44818, int destination = 0)
         {
             EIP_Status status = new EIP_Status();
             status.code = 0;
@@ -66,7 +67,7 @@ namespace EIPForm
                 //IPアドレスはフォームで選択したものを使用
                 //TCPポートは特に変更していない場合はこれで固定 EEIP.dll内の既定値
                 eEIPClient.TCPPort = tcpport;
-                eEIPClient.IPAddress = Encapsulation.CIPIdentityItem.getIPAddress(SetIpAddress);
+                eEIPClient.IPAddress = Encapsulation.CIPIdentityItem.getIPAddress(IpAddressList[destination]);
                 eEIPClient.RegisterSession();
 
                 //CIPメッセージ Assembly(0x04)を使って引数のInstanceIDのIOの値を読み出す
@@ -138,7 +139,7 @@ namespace EIPForm
                 //IPアドレスはフォームで選択したものを使用
                 //TCPポートは特に変更していない場合はこれで固定 EEIP.dll内の既定値
                 eEIPClient.TCPPort = tcpport;
-                eEIPClient.IPAddress = Encapsulation.CIPIdentityItem.getIPAddress(SetIpAddress);
+                eEIPClient.IPAddress = Encapsulation.CIPIdentityItem.getIPAddress(IpAddressList[0]);
                 eEIPClient.RegisterSession();
 
                 //CIPメッセージ Assembly(0x04)を使って引数のInstanceIDのIOの値を読み出す

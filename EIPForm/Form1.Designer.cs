@@ -34,9 +34,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.DataArea1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -69,10 +66,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(280, 28);
+            this.button1.Location = new System.Drawing.Point(275, 11);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 31);
+            this.button1.Size = new System.Drawing.Size(91, 31);
             this.button1.TabIndex = 3;
             this.button1.Text = "読込実行";
             this.button1.UseVisualStyleBackColor = true;
@@ -87,7 +84,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(175, 33);
             this.label2.TabIndex = 4;
-            this.label2.Text = "生産中品番";
+            this.label2.Text = "組立中品番";
             // 
             // comboBox1
             // 
@@ -99,42 +96,6 @@
             this.comboBox1.TabIndex = 5;
             this.comboBox1.Text = "リストから選択";
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "0",
-            "100",
-            "500",
-            "1000",
-            "10000"});
-            this.comboBox2.Location = new System.Drawing.Point(124, 45);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(92, 20);
-            this.comboBox2.TabIndex = 9;
-            this.comboBox2.Text = "リストから選択";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(69, 47);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "通信周期";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(220, 47);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 12);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "ミリ秒";
             // 
             // DataArea1
             // 
@@ -191,9 +152,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 441);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
@@ -220,9 +178,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox DataArea1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;

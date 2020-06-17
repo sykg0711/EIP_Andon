@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,10 +30,16 @@ namespace EIPForm
             timer1.Interval = 1000;
             timer1.Enabled = true;
         }
-
+        /// <summary>
+        /// ボタンを押すとtimer1のtickでreadincetanceを実行する再度押した場合止める
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            start = true;
+            if (start) start = false;
+            else start = true;
+
         }
 
 
@@ -41,12 +48,13 @@ namespace EIPForm
             EIPLib.GetFrom = this;
             EIPLib.SearchDevice();
             comboBox1.Items.AddRange(EIPLib.DeviceList.Select(d => d.ProductName1).ToArray());
+            comboBox1.SelectedIndex = 0;
 
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EIPLib.SetIpAddress = EIPLib.DeviceList[comboBox1.SelectedIndex].SocketAddress.SIN_Address;
+            EIPLib.IpAddressList.Add(EIPLib.DeviceList[comboBox1.SelectedIndex].SocketAddress.SIN_Address);
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -71,16 +79,15 @@ namespace EIPForm
 
             if (start)
             {
-                int.TryParse(comboBox2.SelectedItem.ToString(), out int waittime);
 
-                EIPLib.EIP_Status status1 = EIPLib.ReadInstance(0, 0x64, EIPLib.DataType.DM, true);
+                EIPLib.EIP_Status status1 = EIPLib.ReadInstance(0x64, EIPLib.DataType.DM, true, destination:0);
                 if (status1.code != 0)
                 {
                     start = false;
                     MessageBox.Show(status1.message);
                 }
                 DataArea0.Refresh();
-                EIPLib.EIP_Status status2 = EIPLib.ReadInstance(1, 0x66, EIPLib.DataType.DM, false);
+                EIPLib.EIP_Status status2 = EIPLib.ReadInstance(0x66, EIPLib.DataType.DM, false, destination:0);
                 if(status2.code !=0)
                 {
                     start = false;
