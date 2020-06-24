@@ -8,7 +8,7 @@ using Sres.Net.EEIP;
 
 namespace EIPForm
 {
-    class EIPLib
+    public class EIPLib
     {
         EEIPClient eEIPClient = new EEIPClient();
 
