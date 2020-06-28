@@ -80,14 +80,14 @@ namespace EIPForm
             if (start)
             {
 
-                EIPLib.EIP_Status status1 = EIPLib.ReadInstance(0x64, EIPLib.DataType.DM, true, destination:0);
+                EIPLib.EIP_Status status1 = EIPLib.ReadInstance(0, 0x64, EIPLib.DataType.DM, true, destination:0);
                 if (status1.code != 0)
                 {
                     start = false;
                     MessageBox.Show(status1.message);
                 }
                 DataArea0.Refresh();
-                EIPLib.EIP_Status status2 = EIPLib.ReadInstance(0x66, EIPLib.DataType.DM, false, destination:0);
+                EIPLib.EIP_Status status2 = EIPLib.ReadInstance(1, 0x66, EIPLib.DataType.DM, false, destination:0);
                 if(status2.code !=0)
                 {
                     start = false;

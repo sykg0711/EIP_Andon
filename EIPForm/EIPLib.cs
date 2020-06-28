@@ -56,7 +56,7 @@ namespace EIPForm
         /// <param name="tcpport">TCPポート</param>
         /// <param name="destination">宛先IPアドレス番号</param>
         /// <return>EIP_Status構造体を返します</return>
-        public virtual EIP_Status ReadInstance(byte instanceid, DataType dataType, bool isString, ushort tcpport = 44818, int destination = 0)
+        public virtual EIP_Status ReadInstance(int dataareaID, byte instanceid, DataType dataType, bool isString, ushort tcpport = 44818, int destination = 0)
         {
             EIP_Status status = new EIP_Status();
             status.code = 0;

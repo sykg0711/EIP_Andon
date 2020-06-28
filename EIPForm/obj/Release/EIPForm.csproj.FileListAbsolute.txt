@@ -307,3 +307,11 @@ C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Release\EIPForm.csproj.CoreComp
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Release\EIPForm.csproj.CopyComplete
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Release\EIPForm.exe
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Release\EIPForm.pdb
+C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Release\EIPForm.csprojAssemblyReference.cache
+C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Release\EIPForm.exe.config
+C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Release\EIPForm.Form1.resources
+C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Release\EIPForm.Properties.Resources.resources
+C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Release\EIPForm.csproj.GenerateResource.cache
+C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Release\EIPForm.csproj.CoreCompileInputs.cache
+C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Release\EIPForm.exe
+C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Release\EIPForm.pdb

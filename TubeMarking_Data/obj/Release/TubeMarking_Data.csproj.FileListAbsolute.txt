@@ -1,0 +1,5 @@
+C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.csprojAssemblyReference.cache
+C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.Form1.resources
+C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.Properties.Resources.resources
+C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.csproj.GenerateResource.cache
+C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.csproj.CoreCompileInputs.cache
