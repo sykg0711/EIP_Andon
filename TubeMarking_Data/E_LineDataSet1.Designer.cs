@@ -20,17 +20,17 @@ namespace TubeMarking_Data {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("E_LineDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("E_LineDataSet1")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class E_LineDataSet : global::System.Data.DataSet {
+    public partial class E_LineDataSet1 : global::System.Data.DataSet {
         
-        private Table_1DataTable tableTable_1;
+        private IDDataTable tableID;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public E_LineDataSet() {
+        public E_LineDataSet1() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace TubeMarking_Data {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected E_LineDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected E_LineDataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace TubeMarking_Data {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Table_1"] != null)) {
-                    base.Tables.Add(new Table_1DataTable(ds.Tables["Table_1"]));
+                if ((ds.Tables["ID"] != null)) {
+                    base.Tables.Add(new IDDataTable(ds.Tables["ID"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace TubeMarking_Data {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Table_1DataTable Table_1 {
+        public IDDataTable ID {
             get {
-                return this.tableTable_1;
+                return this.tableID;
             }
         }
         
@@ -127,7 +127,7 @@ namespace TubeMarking_Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            E_LineDataSet cln = ((E_LineDataSet)(base.Clone()));
+            E_LineDataSet1 cln = ((E_LineDataSet1)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace TubeMarking_Data {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Table_1"] != null)) {
-                    base.Tables.Add(new Table_1DataTable(ds.Tables["Table_1"]));
+                if ((ds.Tables["ID"] != null)) {
+                    base.Tables.Add(new IDDataTable(ds.Tables["ID"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace TubeMarking_Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableTable_1 = ((Table_1DataTable)(base.Tables["Table_1"]));
+            this.tableID = ((IDDataTable)(base.Tables["ID"]));
             if ((initTable == true)) {
-                if ((this.tableTable_1 != null)) {
-                    this.tableTable_1.InitVars();
+                if ((this.tableID != null)) {
+                    this.tableID.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace TubeMarking_Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "E_LineDataSet";
+            this.DataSetName = "E_LineDataSet1";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/E_LineDataSet.xsd";
+            this.Namespace = "http://tempuri.org/E_LineDataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableTable_1 = new Table_1DataTable();
-            base.Tables.Add(this.tableTable_1);
+            this.tableID = new IDDataTable();
+            base.Tables.Add(this.tableID);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeTable_1() {
+        private bool ShouldSerializeID() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace TubeMarking_Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            E_LineDataSet ds = new E_LineDataSet();
+            E_LineDataSet1 ds = new E_LineDataSet1();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,25 +270,23 @@ namespace TubeMarking_Data {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void Table_1RowChangeEventHandler(object sender, Table_1RowChangeEvent e);
+        public delegate void IDRowChangeEventHandler(object sender, IDRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Table_1DataTable : global::System.Data.TypedTableBase<Table_1Row> {
+        public partial class IDDataTable : global::System.Data.TypedTableBase<IDRow> {
             
-            private global::System.Data.DataColumn columnDATE;
+            private global::System.Data.DataColumn columnYS_ID;
             
-            private global::System.Data.DataColumn columnID;
-            
-            private global::System.Data.DataColumn columnPROCEEDED;
+            private global::System.Data.DataColumn columnCUSTOMER_ID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Table_1DataTable() {
-                this.TableName = "Table_1";
+            public IDDataTable() {
+                this.TableName = "ID";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -296,7 +294,7 @@ namespace TubeMarking_Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Table_1DataTable(global::System.Data.DataTable table) {
+            internal IDDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -313,32 +311,24 @@ namespace TubeMarking_Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected Table_1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected IDDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DATEColumn {
+            public global::System.Data.DataColumn YS_IDColumn {
                 get {
-                    return this.columnDATE;
+                    return this.columnYS_ID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn IDColumn {
+            public global::System.Data.DataColumn CUSTOMER_IDColumn {
                 get {
-                    return this.columnID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PROCEEDEDColumn {
-                get {
-                    return this.columnPROCEEDED;
+                    return this.columnCUSTOMER_ID;
                 }
             }
             
@@ -353,47 +343,46 @@ namespace TubeMarking_Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Table_1Row this[int index] {
+            public IDRow this[int index] {
                 get {
-                    return ((Table_1Row)(this.Rows[index]));
+                    return ((IDRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Table_1RowChangeEventHandler Table_1RowChanging;
+            public event IDRowChangeEventHandler IDRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Table_1RowChangeEventHandler Table_1RowChanged;
+            public event IDRowChangeEventHandler IDRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Table_1RowChangeEventHandler Table_1RowDeleting;
+            public event IDRowChangeEventHandler IDRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Table_1RowChangeEventHandler Table_1RowDeleted;
+            public event IDRowChangeEventHandler IDRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddTable_1Row(Table_1Row row) {
+            public void AddIDRow(IDRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Table_1Row AddTable_1Row(string DATE, string ID, int PROCEEDED) {
-                Table_1Row rowTable_1Row = ((Table_1Row)(this.NewRow()));
+            public IDRow AddIDRow(string YS_ID, string CUSTOMER_ID) {
+                IDRow rowIDRow = ((IDRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        DATE,
-                        ID,
-                        PROCEEDED};
-                rowTable_1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowTable_1Row);
-                return rowTable_1Row;
+                        YS_ID,
+                        CUSTOMER_ID};
+                rowIDRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowIDRow);
+                return rowIDRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                Table_1DataTable cln = ((Table_1DataTable)(base.Clone()));
+                IDDataTable cln = ((IDDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -401,53 +390,53 @@ namespace TubeMarking_Data {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new Table_1DataTable();
+                return new IDDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnDATE = base.Columns["DATE"];
-                this.columnID = base.Columns["ID"];
-                this.columnPROCEEDED = base.Columns["PROCEEDED"];
+                this.columnYS_ID = base.Columns["YS_ID"];
+                this.columnCUSTOMER_ID = base.Columns["CUSTOMER_ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnDATE = new global::System.Data.DataColumn("DATE", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDATE);
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
-                this.columnPROCEEDED = new global::System.Data.DataColumn("PROCEEDED", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPROCEEDED);
-                this.columnID.MaxLength = 11;
+                this.columnYS_ID = new global::System.Data.DataColumn("YS_ID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnYS_ID);
+                this.columnCUSTOMER_ID = new global::System.Data.DataColumn("CUSTOMER_ID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCUSTOMER_ID);
+                this.columnYS_ID.AllowDBNull = false;
+                this.columnYS_ID.MaxLength = 11;
+                this.columnCUSTOMER_ID.AllowDBNull = false;
+                this.columnCUSTOMER_ID.MaxLength = 24;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Table_1Row NewTable_1Row() {
-                return ((Table_1Row)(this.NewRow()));
+            public IDRow NewIDRow() {
+                return ((IDRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Table_1Row(builder);
+                return new IDRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(Table_1Row);
+                return typeof(IDRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.Table_1RowChanged != null)) {
-                    this.Table_1RowChanged(this, new Table_1RowChangeEvent(((Table_1Row)(e.Row)), e.Action));
+                if ((this.IDRowChanged != null)) {
+                    this.IDRowChanged(this, new IDRowChangeEvent(((IDRow)(e.Row)), e.Action));
                 }
             }
             
@@ -455,8 +444,8 @@ namespace TubeMarking_Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.Table_1RowChanging != null)) {
-                    this.Table_1RowChanging(this, new Table_1RowChangeEvent(((Table_1Row)(e.Row)), e.Action));
+                if ((this.IDRowChanging != null)) {
+                    this.IDRowChanging(this, new IDRowChangeEvent(((IDRow)(e.Row)), e.Action));
                 }
             }
             
@@ -464,8 +453,8 @@ namespace TubeMarking_Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.Table_1RowDeleted != null)) {
-                    this.Table_1RowDeleted(this, new Table_1RowChangeEvent(((Table_1Row)(e.Row)), e.Action));
+                if ((this.IDRowDeleted != null)) {
+                    this.IDRowDeleted(this, new IDRowChangeEvent(((IDRow)(e.Row)), e.Action));
                 }
             }
             
@@ -473,14 +462,14 @@ namespace TubeMarking_Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.Table_1RowDeleting != null)) {
-                    this.Table_1RowDeleting(this, new Table_1RowChangeEvent(((Table_1Row)(e.Row)), e.Action));
+                if ((this.IDRowDeleting != null)) {
+                    this.IDRowDeleting(this, new IDRowChangeEvent(((IDRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveTable_1Row(Table_1Row row) {
+            public void RemoveIDRow(IDRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -489,7 +478,7 @@ namespace TubeMarking_Data {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                E_LineDataSet ds = new E_LineDataSet();
+                E_LineDataSet1 ds = new E_LineDataSet1();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -507,7 +496,7 @@ namespace TubeMarking_Data {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Table_1DataTable";
+                attribute2.FixedValue = "IDDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -551,99 +540,37 @@ namespace TubeMarking_Data {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class Table_1Row : global::System.Data.DataRow {
+        public partial class IDRow : global::System.Data.DataRow {
             
-            private Table_1DataTable tableTable_1;
+            private IDDataTable tableID;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Table_1Row(global::System.Data.DataRowBuilder rb) : 
+            internal IDRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableTable_1 = ((Table_1DataTable)(this.Table));
+                this.tableID = ((IDDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string DATE {
+            public string YS_ID {
                 get {
-                    try {
-                        return ((string)(this[this.tableTable_1.DATEColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'Table_1\' にある列 \'DATE\' の値は DBNull です。", e);
-                    }
+                    return ((string)(this[this.tableID.YS_IDColumn]));
                 }
                 set {
-                    this[this.tableTable_1.DATEColumn] = value;
+                    this[this.tableID.YS_IDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string ID {
+            public string CUSTOMER_ID {
                 get {
-                    try {
-                        return ((string)(this[this.tableTable_1.IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'Table_1\' にある列 \'ID\' の値は DBNull です。", e);
-                    }
+                    return ((string)(this[this.tableID.CUSTOMER_IDColumn]));
                 }
                 set {
-                    this[this.tableTable_1.IDColumn] = value;
+                    this[this.tableID.CUSTOMER_IDColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int PROCEEDED {
-                get {
-                    try {
-                        return ((int)(this[this.tableTable_1.PROCEEDEDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("テーブル \'Table_1\' にある列 \'PROCEEDED\' の値は DBNull です。", e);
-                    }
-                }
-                set {
-                    this[this.tableTable_1.PROCEEDEDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDATENull() {
-                return this.IsNull(this.tableTable_1.DATEColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDATENull() {
-                this[this.tableTable_1.DATEColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsIDNull() {
-                return this.IsNull(this.tableTable_1.IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetIDNull() {
-                this[this.tableTable_1.IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPROCEEDEDNull() {
-                return this.IsNull(this.tableTable_1.PROCEEDEDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPROCEEDEDNull() {
-                this[this.tableTable_1.PROCEEDEDColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -651,22 +578,22 @@ namespace TubeMarking_Data {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class Table_1RowChangeEvent : global::System.EventArgs {
+        public class IDRowChangeEvent : global::System.EventArgs {
             
-            private Table_1Row eventRow;
+            private IDRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Table_1RowChangeEvent(Table_1Row row, global::System.Data.DataRowAction action) {
+            public IDRowChangeEvent(IDRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Table_1Row Row {
+            public IDRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -682,7 +609,7 @@ namespace TubeMarking_Data {
         }
     }
 }
-namespace TubeMarking_Data.E_LineDataSetTableAdapters {
+namespace TubeMarking_Data.E_LineDataSet1TableAdapters {
     
     
     /// <summary>
@@ -694,7 +621,7 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Table_1TableAdapter : global::System.ComponentModel.Component {
+    public partial class IDTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -708,7 +635,7 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Table_1TableAdapter() {
+        public IDTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -805,16 +732,16 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Table_1";
-            tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("PROCEEDED", "PROCEEDED");
+            tableMapping.DataSetTable = "ID";
+            tableMapping.ColumnMappings.Add("YS_ID", "YS_ID");
+            tableMapping.ColumnMappings.Add("CUSTOMER_ID", "CUSTOMER_ID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[RECENT] ([ID], [PROCEEDED]) VALUES (@ID, @PROCEEDED)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[ID] ([YS_ID], [CUSTOMER_ID]) VALUES (@YS_ID, @CUSTOMER_ID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PROCEEDED", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PROCEEDED", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@YS_ID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YS_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CUSTOMER_ID", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CUSTOMER_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -827,22 +754,18 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, PROCEEDED FROM dbo.RECENT";
+            this._commandCollection[0].CommandText = "SELECT YS_ID, CUSTOMER_ID FROM dbo.ID";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT ID, PROCEEDED FROM dbo.Table_1";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(E_LineDataSet.Table_1DataTable dataTable) {
+        public virtual int Fill(E_LineDataSet1.IDDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -855,9 +778,9 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual E_LineDataSet.Table_1DataTable GetData() {
+        public virtual E_LineDataSet1.IDDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            E_LineDataSet.Table_1DataTable dataTable = new E_LineDataSet.Table_1DataTable();
+            E_LineDataSet1.IDDataTable dataTable = new E_LineDataSet1.IDDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -865,39 +788,15 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillBy(E_LineDataSet.Table_1DataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual E_LineDataSet.Table_1DataTable GetDataBy() {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            E_LineDataSet.Table_1DataTable dataTable = new E_LineDataSet.Table_1DataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(E_LineDataSet.Table_1DataTable dataTable) {
+        public virtual int Update(E_LineDataSet1.IDDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(E_LineDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Table_1");
+        public virtual int Update(E_LineDataSet1 dataSet) {
+            return this.Adapter.Update(dataSet, "ID");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -919,18 +818,18 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ID, global::System.Nullable<int> PROCEEDED) {
-            if ((ID == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+        public virtual int Insert(string YS_ID, string CUSTOMER_ID) {
+            if ((YS_ID == null)) {
+                throw new global::System.ArgumentNullException("YS_ID");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(ID));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(YS_ID));
             }
-            if ((PROCEEDED.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(PROCEEDED.Value));
+            if ((CUSTOMER_ID == null)) {
+                throw new global::System.ArgumentNullException("CUSTOMER_ID");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(CUSTOMER_ID));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -961,7 +860,7 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private Table_1TableAdapter _table_1TableAdapter;
+        private IDTableAdapter _iDTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -983,12 +882,12 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public Table_1TableAdapter Table_1TableAdapter {
+        public IDTableAdapter IDTableAdapter {
             get {
-                return this._table_1TableAdapter;
+                return this._iDTableAdapter;
             }
             set {
-                this._table_1TableAdapter = value;
+                this._iDTableAdapter = value;
             }
         }
         
@@ -1011,9 +910,9 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._table_1TableAdapter != null) 
-                            && (this._table_1TableAdapter.Connection != null))) {
-                    return this._table_1TableAdapter.Connection;
+                if (((this._iDTableAdapter != null) 
+                            && (this._iDTableAdapter.Connection != null))) {
+                    return this._iDTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1028,7 +927,7 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._table_1TableAdapter != null)) {
+                if ((this._iDTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1040,14 +939,14 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(E_LineDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(E_LineDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._table_1TableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Table_1.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._iDTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.ID.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._table_1TableAdapter.Update(updatedRows));
+                    result = (result + this._iDTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1059,13 +958,13 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(E_LineDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(E_LineDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._table_1TableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Table_1.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._iDTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.ID.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._table_1TableAdapter.Update(addedRows));
+                    result = (result + this._iDTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1077,13 +976,13 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(E_LineDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(E_LineDataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._table_1TableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Table_1.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._iDTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.ID.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._table_1TableAdapter.Update(deletedRows));
+                    result = (result + this._iDTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1119,15 +1018,15 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(E_LineDataSet dataSet) {
+        public virtual int UpdateAll(E_LineDataSet1 dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._table_1TableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._table_1TableAdapter.Connection) == false))) {
+            if (((this._iDTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._iDTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("TableAdapterManager で管理されるすべての TableAdapter は同一の接続文字列を使用する必要があります。");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
@@ -1161,13 +1060,13 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._table_1TableAdapter != null)) {
-                    revertConnections.Add(this._table_1TableAdapter, this._table_1TableAdapter.Connection);
-                    this._table_1TableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._table_1TableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._table_1TableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._table_1TableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._table_1TableAdapter.Adapter);
+                if ((this._iDTableAdapter != null)) {
+                    revertConnections.Add(this._iDTableAdapter, this._iDTableAdapter.Connection);
+                    this._iDTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._iDTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._iDTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._iDTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._iDTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1228,9 +1127,9 @@ namespace TubeMarking_Data.E_LineDataSetTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._table_1TableAdapter != null)) {
-                    this._table_1TableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._table_1TableAdapter]));
-                    this._table_1TableAdapter.Transaction = null;
+                if ((this._iDTableAdapter != null)) {
+                    this._iDTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._iDTableAdapter]));
+                    this._iDTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

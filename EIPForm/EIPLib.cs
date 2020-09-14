@@ -11,6 +11,7 @@ namespace EIPForm
     public class EIPLib
     {
         EEIPClient eEIPClient = new EEIPClient();
+        List<uint> ipaddress = new List<uint>();
 
         public enum DataType
         {
@@ -29,17 +30,29 @@ namespace EIPForm
             public int code { get; set; }
             public  string message { get; set; }
             public byte[] response { get; set; }
+
+            public string value { get; set; }
         }
 
         /// <summary>
         /// EIPユニットのIPアドレスを登録します。
         /// </summary>
-        public List<uint> IpAddressList { get; set; }
+        public List<uint> IpAddressList
+        {
+            get
+            {
+                return ipaddress;
+            }
+            set
+            {
+                ipaddress = value;
+            }
+        }
 
         /// <summary>
         /// 親フォームを取得します。
         /// </summary>
-        public Form1 GetFrom { get; set; }
+        public EIP_Andon GetFrom { get; set; }
 
         /// <summary>
         /// ネットワーク内のEthernet/IPデバイスを登録します
@@ -56,7 +69,7 @@ namespace EIPForm
         /// <param name="tcpport">TCPポート</param>
         /// <param name="destination">宛先IPアドレス番号</param>
         /// <return>EIP_Status構造体を返します</return>
-        public virtual EIP_Status ReadInstance(int dataareaID, byte instanceid, DataType dataType, bool isString, ushort tcpport = 44818, int destination = 0)
+        public virtual EIP_Status ReadInstance(byte instanceid, DataType dataType, bool isString, ushort tcpport = 44818, int destination = 0)
         {
             EIP_Status status = new EIP_Status();
             status.code = 0;
@@ -88,10 +101,11 @@ namespace EIPForm
                     }
 
                     responseString = tmpvalue.ToString();
+                    status.value = responseString;
 
                     //IDによって書き込みエリアを振り分け
-
-                    GetFrom.Invoke(new Form1.Form1Update(() => GetFrom.Form1_DataAreaUpdate(responseString + "\n", dataareaID)));
+                    //とりあえず殺しとく
+                    //GetFrom.Invoke(new EIP_Andon.Form1Update(() => GetFrom.Form1_DataAreaUpdate(responseString + "\n", dataareaID)));
                 }
 
                 //送られてきたデータが文字列の場合
@@ -101,18 +115,24 @@ namespace EIPForm
 
                     for (int i = 0; i < response.Length - 1; i++)
                     {
-                        responseString += (char)response[i + 1];
-                        responseString += (char)response[i];
-                        i++;
+                        if (response[i] != 0x32)
+                        {
+                            responseString += (char)response[i + 1];
+                            responseString += (char)response[i];
+                            i++;
+                        }
+                        else break;
                     }
 
-                    GetFrom.Invoke(new Form1.Form1Update(() => GetFrom.Form1_DataAreaUpdate(responseString + "\n", dataareaID)));
+                    status.value = responseString;
+                    //とりあえず殺しておく
+                    //GetFrom.Invoke(new EIP_Andon.Form1Update(() => GetFrom.Form1_DataAreaUpdate(responseString + "\n", dataareaID)));
                 }
 
-                //ビット形式の場合RelayBinメソッドでBCDを2進数にする
+                //ビット形式はとりあえず何もしない
                 if (dataType == DataType.R || dataType == DataType.L || dataType == DataType.X || dataType == DataType.Y)
                 {
-                    RelayBin(response);
+                    
                 }
 
                 //戻り値を作る
@@ -162,45 +182,6 @@ namespace EIPForm
             }
         }
 
-        /// <summary>
-        /// 16新数1ワードデータをビット列に変換し、チェックボックスの状態を変化させるデリゲートを呼び出します。
-        /// </summary>
-        /// <param name="recieves">Explicit Messaging データ</param>
-        private void RelayBin(byte[] recieves)
-        {
-            int n = 0;
-            int tmpvalue = 0;
-            //HEXを10進数に変換(上位バイトに16^2n倍の重さをかけて足し合わせる)
-            foreach (byte resAddress in recieves)
-            {
-                tmpvalue += resAddress * (int)Math.Pow(16, 2 * n);
-                n++;
-            }
-
-            int mod = tmpvalue;
-
-            for(int j = 0; j < recieves.Length * 8; j++)
-            {
-                //基数変換(10進数→2進数)
-                if (mod % 2 == 0)
-                {
-                    GetFrom.Invoke(new Form1.Form1Update(() => GetFrom.Form1_CheckboxUpdata(false, j)));
-                }
-                else
-                {
-                    GetFrom.Invoke(new Form1.Form1Update(() => GetFrom.Form1_CheckboxUpdata(true, j)));
-                }
-                //更新後のデータが前のデータより少ないと上位ビットが計算されない為最下位ビットまで
-                //基数変換したら有無言わさずfalseにする
-                if(mod <= 0)
-                {
-                    GetFrom.Invoke(new Form1.Form1Update(() => GetFrom.Form1_CheckboxUpdata(false, j)));
-                }
-
-                mod = mod / 2;
-
-            }
-        }
 
         /// <summary>
         /// ネットワーク上にあるEthernet/IPデバイスの情報を取得します。
@@ -216,6 +197,7 @@ namespace EIPForm
             foreach(Encapsulation.CIPIdentityItem device in DeviceList)
             {
                 dev[i] = Encapsulation.CIPIdentityItem.getIPAddress(device.SocketAddress.SIN_Address) + "\t" + device.ProductName1;
+                IpAddressList.Add(device.SocketAddress.SIN_Address);
                 i++;
             }
 
@@ -228,5 +210,6 @@ namespace EIPForm
         {
             //eEIPClient.UnRegisterSession();
         }
+
     }
 }

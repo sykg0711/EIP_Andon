@@ -11,6 +11,14 @@ namespace TubeMarking_Data
     class EIP_DataWrite_On_SQLDB
     {
 
+        public struct SQLtarget
+        {
+            public string column;
+            public string database;
+            public string filter;
+            public string value;
+        }
+
         /// <summary>
         /// SQLクエリを発行して書き込む
         /// </summary>
@@ -72,6 +80,26 @@ namespace TubeMarking_Data
             connection.Close();
             connection.Dispose();
 
+        }
+
+        public string SQLRead(SQLtarget target)
+        {
+            string ysids = "";
+
+            using (SqlConnection sql = new SqlConnection(ConfigurationManager.ConnectionStrings["DataSource2"].ConnectionString))
+            {
+                sql.Open();
+
+                string command = "select " +target.column  + " from " + target.database + " where " + target.filter + " ='" + target.value + "'";
+                SqlDataReader reader = new SqlCommand(command, sql).ExecuteReader();
+                while(reader.Read())
+                {
+                    ysids = (string)reader[0];
+                }
+                sql.Close();
+            }
+
+            return ysids;
         }
 
     }

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace EIPForm
 {
-    public partial class Form1 : Form
+    public partial class EIP_Andon : Form
     {
         public delegate void Form1Update();
         private bool start;
@@ -20,7 +20,7 @@ namespace EIPForm
         List<TextBox> dataAreaArray = new List<TextBox>();
         Task waitTask;
 
-        public Form1()
+        public EIP_Andon()
         {
             InitializeComponent();
 
@@ -48,13 +48,13 @@ namespace EIPForm
             EIPLib.GetFrom = this;
             EIPLib.SearchDevice();
             comboBox1.Items.AddRange(EIPLib.DeviceList.Select(d => d.ProductName1).ToArray());
-            comboBox1.SelectedIndex = 0;
+            //comboBox1.SelectedIndex = 0;
 
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EIPLib.IpAddressList.Add(EIPLib.DeviceList[comboBox1.SelectedIndex].SocketAddress.SIN_Address);
+            //EIPLib.IpAddressList.Add(EIPLib.DeviceList[comboBox1.SelectedIndex].SocketAddress.SIN_Address);
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -80,20 +80,20 @@ namespace EIPForm
             if (start)
             {
 
-                EIPLib.EIP_Status status1 = EIPLib.ReadInstance(0, 0x64, EIPLib.DataType.DM, true, destination:0);
+                EIPLib.EIP_Status status1 = EIPLib.ReadInstance(0x64, EIPLib.DataType.DM, true, destination:comboBox1.SelectedIndex);
                 if (status1.code != 0)
                 {
                     start = false;
                     MessageBox.Show(status1.message);
                 }
-                DataArea0.Refresh();
-                EIPLib.EIP_Status status2 = EIPLib.ReadInstance(1, 0x66, EIPLib.DataType.DM, false, destination:0);
+                DataArea0.Text = status1.value;
+                EIPLib.EIP_Status status2 = EIPLib.ReadInstance(0x66, EIPLib.DataType.DM, false, destination:comboBox1.SelectedIndex);
                 if(status2.code !=0)
                 {
                     start = false;
                     MessageBox.Show(status2.message);
                 }
-                DataArea1.Refresh();
+                DataArea1.Text = status2.value;
             }
         }
 

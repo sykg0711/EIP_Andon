@@ -704,10 +704,10 @@ C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\bin\Debug\System.Text.Enc
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.csprojAssemblyReference.cache
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.exe.config
-C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.Form1.resources
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.Properties.Resources.resources
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.csproj.GenerateResource.cache
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.csproj.CoreCompileInputs.cache
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.csproj.CopyComplete
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.exe
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.pdb
+C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.EIP_Andon.resources

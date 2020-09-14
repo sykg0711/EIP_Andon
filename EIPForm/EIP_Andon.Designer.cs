@@ -1,6 +1,6 @@
 ﻿namespace EIPForm
 {
-    partial class Form1
+    partial class EIP_Andon
     {
         /// <summary>
         /// 必要なデザイナー変数です。
@@ -57,7 +57,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 18);
+            this.label1.Location = new System.Drawing.Point(4, 18);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 12);
@@ -66,7 +66,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(275, 11);
+            this.button1.Location = new System.Drawing.Point(272, 11);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(91, 31);
@@ -89,7 +89,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(124, 17);
+            this.comboBox1.Location = new System.Drawing.Point(121, 17);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(147, 20);
@@ -147,7 +147,7 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "timer";
             // 
-            // Form1
+            // EIP_Andon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -162,7 +162,7 @@
             this.Controls.Add(this.DataArea1);
             this.Controls.Add(this.DataArea0);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form1";
+            this.Name = "EIP_Andon";
             this.Text = "Ethernet/IP アンドン";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
