@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pROCEEDEDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.table_1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.e_LineDataSet = new TubeMarking_Data.E_LineDataSet();
             this.table_1TableAdapter = new TubeMarking_Data.E_LineDataSetTableAdapters.Table_1TableAdapter();
@@ -39,9 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
-            this.DATE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pROCEEDEDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table_1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.e_LineDataSet)).BeginInit();
@@ -60,6 +60,25 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(776, 390);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView1_RowsRemoved);
+            // 
+            // DATE
+            // 
+            this.DATE.DataPropertyName = "DATE";
+            this.DATE.HeaderText = "時刻";
+            this.DATE.Name = "DATE";
+            // 
+            // iDDataGridViewTextBoxColumn
+            // 
+            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.HeaderText = "品番";
+            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
+            // 
+            // pROCEEDEDDataGridViewTextBoxColumn
+            // 
+            this.pROCEEDEDDataGridViewTextBoxColumn.DataPropertyName = "PROCEEDED";
+            this.pROCEEDEDDataGridViewTextBoxColumn.HeaderText = "生産数";
+            this.pROCEEDEDDataGridViewTextBoxColumn.Name = "pROCEEDEDDataGridViewTextBoxColumn";
             // 
             // table_1BindingSource
             // 
@@ -116,6 +135,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // label2
@@ -126,24 +146,6 @@
             this.label2.Size = new System.Drawing.Size(35, 12);
             this.label2.TabIndex = 9;
             this.label2.Text = "label2";
-            // 
-            // DATE
-            // 
-            this.DATE.DataPropertyName = "DATE";
-            this.DATE.HeaderText = "時刻";
-            this.DATE.Name = "DATE";
-            // 
-            // iDDataGridViewTextBoxColumn
-            // 
-            this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.HeaderText = "品番";
-            this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            // 
-            // pROCEEDEDDataGridViewTextBoxColumn
-            // 
-            this.pROCEEDEDDataGridViewTextBoxColumn.DataPropertyName = "PROCEEDED";
-            this.pROCEEDEDDataGridViewTextBoxColumn.HeaderText = "生産数";
-            this.pROCEEDEDDataGridViewTextBoxColumn.Name = "pROCEEDEDDataGridViewTextBoxColumn";
             // 
             // Form1
             // 

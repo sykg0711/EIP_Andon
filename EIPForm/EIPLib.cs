@@ -13,6 +13,8 @@ namespace EIPForm
         EEIPClient eEIPClient = new EEIPClient();
         List<uint> ipaddress = new List<uint>();
 
+        public bool DataLinkEnable { get; set; }
+        public byte[] DatalinkResponse;
         public enum DataType
         {
             R,  //リレー
@@ -139,7 +141,7 @@ namespace EIPForm
                 status.code = 0;
                 status.response = response;
 
-                eEIPClient.UnRegisterSession();
+                //eEIPClient.UnRegisterSession();
 
             }
             catch (Exception e)
@@ -208,7 +210,48 @@ namespace EIPForm
         //フォームをクローズする際に呼び出す処理
         public void Close()
         {
-            //eEIPClient.UnRegisterSession();
+            eEIPClient.UnRegisterSession();
+        }
+
+
+        //これ使えねー
+        public async void TagDataLink(int destination, byte instanceid, ushort length, uint rpi)
+        {
+            ushort tcpport = 44818;
+
+            eEIPClient.T_O_InstanceID = instanceid;
+            eEIPClient.T_O_Length = length;
+            eEIPClient.T_O_RealTimeFormat = RealTimeFormat.Modeless;
+            eEIPClient.T_O_ConnectionType = ConnectionType.Point_to_Point;
+            eEIPClient.T_O_Priority = Priority.Scheduled;
+            eEIPClient.T_O_VariableLength = false;
+            eEIPClient.T_O_OwnerRedundant = false;
+            eEIPClient.RequestedPacketRate_T_O = rpi;
+
+            eEIPClient.O_T_VariableLength = false;
+            eEIPClient.O_T_Priority = Priority.Scheduled;
+            eEIPClient.O_T_RealTimeFormat = RealTimeFormat.Modeless;
+            eEIPClient.O_T_InstanceID = 0x64;
+            eEIPClient.O_T_ConnectionType = ConnectionType.Point_to_Point;
+            eEIPClient.RequestedPacketRate_O_T = rpi;
+
+            eEIPClient.TCPPort = tcpport;
+            eEIPClient.IPAddress = Encapsulation.CIPIdentityItem.getIPAddress(IpAddressList[destination]);
+            eEIPClient.RegisterSession();
+            var test = eEIPClient.Detect_T_O_Length();
+            eEIPClient.ForwardOpen();
+
+            while(DataLinkEnable)
+            {
+                DatalinkResponse = eEIPClient.T_O_IOData;
+            }
+
+            if(!DataLinkEnable)
+            {
+                eEIPClient.ForwardClose();
+                eEIPClient.UnRegisterSession();
+            }
+
         }
 
     }
