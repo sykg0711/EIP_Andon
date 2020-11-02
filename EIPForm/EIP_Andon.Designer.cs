@@ -39,6 +39,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.DataArea2 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // DataArea0
@@ -147,18 +149,44 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "timer";
             // 
+            // DataArea2
+            // 
+            this.DataArea2.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.DataArea2.Font = new System.Drawing.Font("MS UI Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.DataArea2.ForeColor = System.Drawing.Color.Black;
+            this.DataArea2.Location = new System.Drawing.Point(360, 308);
+            this.DataArea2.Margin = new System.Windows.Forms.Padding(2);
+            this.DataArea2.Name = "DataArea2";
+            this.DataArea2.ReadOnly = true;
+            this.DataArea2.Size = new System.Drawing.Size(269, 55);
+            this.DataArea2.TabIndex = 0;
+            this.DataArea2.Text = "------";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label6.Location = new System.Drawing.Point(354, 273);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(111, 33);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "投入数";
+            // 
             // EIP_Andon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(727, 441);
             this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.DataArea2);
             this.Controls.Add(this.DataArea1);
             this.Controls.Add(this.DataArea0);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -183,6 +211,8 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox DataArea2;
+        private System.Windows.Forms.Label label6;
     }
 }
 

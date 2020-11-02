@@ -80,20 +80,27 @@ namespace EIPForm
             if (start)
             {
 
-                EIPLib.EIP_Status status1 = EIPLib.ReadInstance(0x64, EIPLib.DataType.DM, true, destination:comboBox1.SelectedIndex);
+                EIPLib.EIP_Status status1 = EIPLib.ReadInstance(0x64, EIPLib.DataType.DM, true, false, destination:comboBox1.SelectedIndex);
                 if (status1.code != 0)
                 {
                     start = false;
                     MessageBox.Show(status1.message);
                 }
                 DataArea0.Text = status1.value;
-                EIPLib.EIP_Status status2 = EIPLib.ReadInstance(0x66, EIPLib.DataType.DM, false, destination:comboBox1.SelectedIndex);
+                EIPLib.EIP_Status status2 = EIPLib.ReadInstance(0x66, EIPLib.DataType.DM, false, false, destination:comboBox1.SelectedIndex);
                 if(status2.code !=0)
                 {
                     start = false;
                     MessageBox.Show(status2.message);
                 }
                 DataArea1.Text = status2.value;
+                EIPLib.EIP_Status status3 = EIPLib.ReadInstance(0x67, EIPLib.DataType.DM, false, true, destination: comboBox1.SelectedIndex);
+                if (status3.code != 0)
+                {
+                    start = false;
+                    MessageBox.Show(status3.message);
+                }
+                DataArea2.Text = status3.value;
             }
         }
 

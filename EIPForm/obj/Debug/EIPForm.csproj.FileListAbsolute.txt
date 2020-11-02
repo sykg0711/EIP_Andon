@@ -436,12 +436,6 @@ C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Debug\Microsoft.Extensions.Plat
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Debug\Microsoft.Extensions.Primitives.dll
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Debug\Microsoft.Net.Http.Headers.dll
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Debug\Newtonsoft.Json.dll
-C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Debug\Opc.Ua.Client.dll
-C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Debug\Opc.Ua.Configuration.dll
-C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Debug\Opc.Ua.Core.dll
-C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Debug\Opc.Ua.Gds.Client.Common.dll
-C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Debug\Opc.Ua.Gds.Server.Common.dll
-C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Debug\Opc.Ua.Server.dll
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Debug\System.Buffers.dll
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Debug\System.Collections.Immutable.dll
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Debug\System.ComponentModel.Annotations.dll
@@ -502,7 +496,6 @@ C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Debug\System.Text.Encodings.Web
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Debug\EIPForm.csprojAssemblyReference.cache
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Debug\EIPForm.exe.config
-C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Debug\EIPForm.Form1.resources
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Debug\EIPForm.Properties.Resources.resources
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Debug\EIPForm.csproj.GenerateResource.cache
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Debug\EIPForm.csproj.CoreCompileInputs.cache
@@ -711,3 +704,4 @@ C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.csproj.
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.exe
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.pdb
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.EIP_Andon.resources
+C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Debug\EIPForm.EIP_Andon.resources

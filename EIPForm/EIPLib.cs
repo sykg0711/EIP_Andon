@@ -71,7 +71,7 @@ namespace EIPForm
         /// <param name="tcpport">TCPポート</param>
         /// <param name="destination">宛先IPアドレス番号</param>
         /// <return>EIP_Status構造体を返します</return>
-        public virtual EIP_Status ReadInstance(byte instanceid, DataType dataType, bool isString, ushort tcpport = 44818, int destination = 0)
+        public virtual EIP_Status ReadInstance(byte instanceid, DataType dataType, bool isString, bool isBCD, ushort tcpport = 44818, int destination = 0)
         {
             EIP_Status status = new EIP_Status();
             status.code = 0;
@@ -92,7 +92,7 @@ namespace EIPForm
 
                 //送られてきたデータが数値の場合
                 //HEX→DEC変換して格納
-                if ((dataType == DataType.DM || dataType == DataType.EM) && !isString)
+                if ((dataType == DataType.DM || dataType == DataType.EM) && !isString && !isBCD)
                 {
                     int n = 0;
                     int tmpvalue = 0;
@@ -109,6 +109,21 @@ namespace EIPForm
                     //とりあえず殺しとく
                     //GetFrom.Invoke(new EIP_Andon.Form1Update(() => GetFrom.Form1_DataAreaUpdate(responseString + "\n", dataareaID)));
                 }
+                else if(isBCD)
+                {
+                    string tmpvalue = "";
+                    foreach (byte resAddress in response)
+                    {
+                        if (resAddress > 0)
+                        {
+                            tmpvalue = (resAddress / 16).ToString() + (resAddress % 16).ToString();
+                        }
+                    }
+
+                    responseString = tmpvalue.ToString();
+                    status.value = responseString;
+                }
+
 
                 //送られてきたデータが文字列の場合
                 //リトルエンディアンのため上位バイトは i + 1 に格納されている

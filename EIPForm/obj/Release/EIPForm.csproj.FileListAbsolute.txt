@@ -234,12 +234,6 @@ C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Release\Microsoft.Extensions.Pl
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Release\Microsoft.Extensions.Primitives.dll
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Release\Microsoft.Net.Http.Headers.dll
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Release\Newtonsoft.Json.dll
-C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Release\Opc.Ua.Client.dll
-C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Release\Opc.Ua.Configuration.dll
-C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Release\Opc.Ua.Core.dll
-C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Release\Opc.Ua.Gds.Client.Common.dll
-C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Release\Opc.Ua.Gds.Server.Common.dll
-C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Release\Opc.Ua.Server.dll
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Release\System.Buffers.dll
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Release\System.Collections.Immutable.dll
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Release\System.ComponentModel.Annotations.dll
@@ -300,7 +294,6 @@ C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Release\System.Text.Encodings.W
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\bin\Release\System.Threading.Tasks.Extensions.xml
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Release\EIPForm.csprojAssemblyReference.cache
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Release\EIPForm.exe.config
-C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Release\EIPForm.Form1.resources
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Release\EIPForm.Properties.Resources.resources
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Release\EIPForm.csproj.GenerateResource.cache
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Release\EIPForm.csproj.CoreCompileInputs.cache
@@ -315,3 +308,4 @@ C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Release\EIPForm.cspro
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Release\EIPForm.csproj.CoreCompileInputs.cache
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Release\EIPForm.exe
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Release\EIPForm.pdb
+C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Release\EIPForm.EIP_Andon.resources

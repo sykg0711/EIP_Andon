@@ -3,3 +3,8 @@ C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\TubeMarking_Data\obj\Release\Tube
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.Properties.Resources.resources
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.csproj.GenerateResource.cache
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.csproj.CoreCompileInputs.cache
+C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.csprojAssemblyReference.cache
+C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.Form1.resources
+C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.Properties.Resources.resources
+C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.csproj.GenerateResource.cache
+C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.csproj.CoreCompileInputs.cache
