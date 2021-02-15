@@ -36,6 +36,13 @@ namespace EIPForm
             public string value { get; set; }
         }
 
+        public struct TagInfo
+        {
+            int instanceID;
+            DataType dataType;
+            int bytewid;
+        }
+
         /// <summary>
         /// EIPユニットのIPアドレスを登録します。
         /// </summary>
@@ -73,9 +80,11 @@ namespace EIPForm
         /// <return>EIP_Status構造体を返します</return>
         public virtual EIP_Status ReadInstance(byte instanceid, DataType dataType, bool isString, bool isBCD, ushort tcpport = 44818, int destination = 0)
         {
-            EIP_Status status = new EIP_Status();
-            status.code = 0;
-            status.message = "";
+            EIP_Status status = new EIP_Status
+            {
+                code = 0,
+                message = ""
+            };
 
             try
             {
@@ -105,9 +114,6 @@ namespace EIPForm
                     responseString = tmpvalue.ToString();
                     status.value = responseString;
 
-                    //IDによって書き込みエリアを振り分け
-                    //とりあえず殺しとく
-                    //GetFrom.Invoke(new EIP_Andon.Form1Update(() => GetFrom.Form1_DataAreaUpdate(responseString + "\n", dataareaID)));
                 }
                 else if(isBCD)
                 {
@@ -142,8 +148,6 @@ namespace EIPForm
                     }
 
                     status.value = responseString;
-                    //とりあえず殺しておく
-                    //GetFrom.Invoke(new EIP_Andon.Form1Update(() => GetFrom.Form1_DataAreaUpdate(responseString + "\n", dataareaID)));
                 }
 
                 //ビット形式はとりあえず何もしない
@@ -155,8 +159,6 @@ namespace EIPForm
                 //戻り値を作る
                 status.code = 0;
                 status.response = response;
-
-                //eEIPClient.UnRegisterSession();
 
             }
             catch (Exception e)
@@ -267,6 +269,13 @@ namespace EIPForm
                 eEIPClient.UnRegisterSession();
             }
 
+        }
+
+        public  List<TagInfo> TagList()
+        {
+            List<TagInfo> tagInfos = new List<TagInfo>();
+            return tagInfos;
+            
         }
 
     }

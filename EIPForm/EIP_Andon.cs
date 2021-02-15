@@ -14,11 +14,13 @@ namespace EIPForm
     public partial class EIP_Andon : Form
     {
         public delegate void Form1Update();
+        public int destination;
+        const uint defaultip = 0xC0A80101;  //192.168.1.1
         private bool start;
         EIPLib EIPLib = new EIPLib();
         List<CheckBox> checkBoxArray = new List<CheckBox>();
         List<TextBox> dataAreaArray = new List<TextBox>();
-        Task waitTask;
+        
 
         public EIP_Andon()
         {
@@ -29,6 +31,7 @@ namespace EIPForm
             dataAreaArray.Add(DataArea1);
             timer1.Interval = 1000;
             timer1.Enabled = true;
+
         }
         /// <summary>
         /// ボタンを押すとtimer1のtickでreadincetanceを実行する再度押した場合止める
@@ -47,7 +50,18 @@ namespace EIPForm
         {
             EIPLib.GetFrom = this;
             EIPLib.SearchDevice();
-            comboBox1.Items.AddRange(EIPLib.DeviceList.Select(d => d.ProductName1).ToArray());
+            int i = 0;
+            foreach(uint ip in EIPLib.IpAddressList)
+            {
+                if(ip == defaultip)
+                {
+                    destination = i;
+                    break;
+                }
+                i++;
+            }
+
+            //comboBox1.Items.AddRange(EIPLib.DeviceList.Select(d => d.ProductName1).ToArray());
             //comboBox1.SelectedIndex = 0;
 
         }
@@ -80,21 +94,21 @@ namespace EIPForm
             if (start)
             {
 
-                EIPLib.EIP_Status status1 = EIPLib.ReadInstance(0x64, EIPLib.DataType.DM, true, false, destination:comboBox1.SelectedIndex);
+                EIPLib.EIP_Status status1 = EIPLib.ReadInstance(0x64, EIPLib.DataType.DM, true, false, destination:destination);
                 if (status1.code != 0)
                 {
                     start = false;
                     MessageBox.Show(status1.message);
                 }
                 DataArea0.Text = status1.value;
-                EIPLib.EIP_Status status2 = EIPLib.ReadInstance(0x66, EIPLib.DataType.DM, false, false, destination:comboBox1.SelectedIndex);
+                EIPLib.EIP_Status status2 = EIPLib.ReadInstance(0x66, EIPLib.DataType.DM, false, false, destination:destination);
                 if(status2.code !=0)
                 {
                     start = false;
                     MessageBox.Show(status2.message);
                 }
                 DataArea1.Text = status2.value;
-                EIPLib.EIP_Status status3 = EIPLib.ReadInstance(0x67, EIPLib.DataType.DM, false, true, destination: comboBox1.SelectedIndex);
+                EIPLib.EIP_Status status3 = EIPLib.ReadInstance(0x67, EIPLib.DataType.DM, false, true, destination:destination);
                 if (status3.code != 0)
                 {
                     start = false;
@@ -110,6 +124,22 @@ namespace EIPForm
             EIPLib.WriteInstance(0x67, EIPLib.DataType.L, sendData, false);
 
 
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IPAddressSetting ipSetting = new IPAddressSetting();
+            ipSetting.parent = this;
+            ipSetting.lib = EIPLib;
+            ipSetting.Show(this);
+        }
+
+        private void tagSettingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tagSetting tagSetting = new tagSetting();
+            tagSetting.parent = this;
+            tagSetting.lib = EIPLib;
+            tagSetting.Show(this);
         }
     }
 }

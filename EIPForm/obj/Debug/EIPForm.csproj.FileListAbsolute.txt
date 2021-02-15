@@ -705,3 +705,5 @@ C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.exe
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.pdb
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Debug\EIPForm.EIP_Andon.resources
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Debug\EIPForm.EIP_Andon.resources
+C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Debug\EIPForm.IPAddressSetting.resources
+C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Debug\EIPForm.tagSetting.resources
