@@ -60,30 +60,12 @@ namespace EIPForm
                 }
                 i++;
             }
-
-            //comboBox1.Items.AddRange(EIPLib.DeviceList.Select(d => d.ProductName1).ToArray());
-            //comboBox1.SelectedIndex = 0;
-
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //EIPLib.IpAddressList.Add(EIPLib.DeviceList[comboBox1.SelectedIndex].SocketAddress.SIN_Address);
-        }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             EIPLib.Close();
-        }
-
-        public void Form1_DataAreaUpdate(string str, int id)
-        {
-            dataAreaArray[id].Text = str;
-        }
-
-        public void Form1_CheckboxUpdata(bool bit, int id)
-        {
-            checkBoxArray[id].Checked = bit;
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -93,37 +75,31 @@ namespace EIPForm
 
             if (start)
             {
-
-                EIPLib.EIP_Status status1 = EIPLib.ReadInstance(0x64, EIPLib.DataType.DM, true, false, destination:destination);
+                EIPLib.EIP_Status status1 = EIPLib.ReadInstance(0x64, EIPLib.DataType.DM, true, false, destination: destination);
                 if (status1.code != 0)
                 {
                     start = false;
                     MessageBox.Show(status1.message);
+                    EIPLib.Close();
                 }
                 DataArea0.Text = status1.value;
-                EIPLib.EIP_Status status2 = EIPLib.ReadInstance(0x66, EIPLib.DataType.DM, false, false, destination:destination);
-                if(status2.code !=0)
+                EIPLib.EIP_Status status2 = EIPLib.ReadInstance(0x66, EIPLib.DataType.DM, false, false, destination: destination);
+                if (status2.code != 0)
                 {
                     start = false;
                     MessageBox.Show(status2.message);
+                    EIPLib.Close();
                 }
                 DataArea1.Text = status2.value;
-                EIPLib.EIP_Status status3 = EIPLib.ReadInstance(0x67, EIPLib.DataType.DM, false, true, destination:destination);
+                EIPLib.EIP_Status status3 = EIPLib.ReadInstance(0x67, EIPLib.DataType.DM, false, true, destination: destination);
                 if (status3.code != 0)
                 {
                     start = false;
                     MessageBox.Show(status3.message);
+                    EIPLib.Close();
                 }
                 DataArea2.Text = status3.value;
             }
-        }
-
-        private void Button2_Click(object sender, EventArgs e)
-        {
-            byte[] sendData = { 0xFF, 0xFF };
-            EIPLib.WriteInstance(0x67, EIPLib.DataType.L, sendData, false);
-
-
         }
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
