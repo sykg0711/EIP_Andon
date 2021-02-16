@@ -72,7 +72,7 @@ namespace TubeMarking_Data
                
                 DateTime d = DateTime.Now;
 
-                EIPLib.EIP_Status status1 = eIPLib.ReadInstance(0x64, EIPLib.DataType.DM, true, destination: comboBox1.SelectedIndex);
+                EIPLib.EIP_Status status1 = eIPLib.ReadInstance(0x64, EIPLib.DataType.DM, true, false, destination: comboBox1.SelectedIndex);
                 if (status1.code != 0)
                 {
                     tick = false;
@@ -89,7 +89,7 @@ namespace TubeMarking_Data
                     target.value = status1.value;
                     string tmp1 = new EIP_DataWrite_On_SQLDB().SQLRead(target);
 
-                    EIPLib.EIP_Status status2 = eIPLib.ReadInstance(0x65, EIPLib.DataType.DM, false, destination: comboBox1.SelectedIndex);
+                    EIPLib.EIP_Status status2 = eIPLib.ReadInstance(0x65, EIPLib.DataType.DM, false, false,  destination: comboBox1.SelectedIndex);
                     if (status2.code != 0)
                     {
                         tick = false;

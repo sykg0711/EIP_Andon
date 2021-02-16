@@ -310,3 +310,4 @@ C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Release\EIPForm.exe
 C:\Users\syosh\Source\Repos\sykg0711\EIP_Andon\EIPForm\obj\Release\EIPForm.pdb
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Release\EIPForm.EIP_Andon.resources
 C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Release\EIPForm.IPAddressSetting.resources
+C:\Users\1728\Source\Repos\EIP_Andon\EIPForm\obj\Release\EIPForm.tagSetting.resources

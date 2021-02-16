@@ -8,3 +8,13 @@ C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Da
 C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.Properties.Resources.resources
 C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.csproj.GenerateResource.cache
 C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.csproj.CoreCompileInputs.cache
+C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\bin\Release\TubeMarking_Data.exe.config
+C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\bin\Release\TubeMarking_Data.exe
+C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\bin\Release\TubeMarking_Data.pdb
+C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\bin\Release\EEIP.dll
+C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\bin\Release\EIPForm.exe
+C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\bin\Release\EIPForm.pdb
+C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\bin\Release\EIPForm.exe.config
+C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.csproj.CopyComplete
+C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.exe
+C:\Users\1728\Source\Repos\EIP_Andon\TubeMarking_Data\obj\Release\TubeMarking_Data.pdb
